@@ -12,11 +12,11 @@ INSERT INTO contact (id, phone_number, email, profile_link) VALUES (3, '8-999-99
 INSERT INTO contact (id, phone_number, email, profile_link) VALUES (4, '8-999-999-99-99', 'email4@gmail.com', 'contact4.com');
 INSERT INTO contact (id, phone_number, email, profile_link) VALUES (5, '8-999-999-99-99', 'email5@mail.ru', 'contact5.ru');
 
-insert into illness (id, medical_card_id, type_id, heaviness, appearance_dttm, recovery_dt) values (1, 1, 6, 'M', '2022-05-22', '2022-10-20');
-insert into illness (id, medical_card_id, type_id, heaviness, appearance_dttm, recovery_dt) values (2, 2, 7, 'F', '2022-05-11', '2022-09-13');
-insert into illness (id, medical_card_id, type_id, heaviness, appearance_dttm, recovery_dt) values (3, 3, 8, 'M', '2022-05-12', '2022-07-11');
-insert into illness (id, medical_card_id, type_id, heaviness, appearance_dttm, recovery_dt) values (4, 4, 9, 'F', '2022-05-14', '2022-06-23');
-insert into illness (id, medical_card_id, type_id, heaviness, appearance_dttm, recovery_dt) values (5, 4, 10,'M', '2022-05-19', '2022-11-04');
+INSERT INTO illness (id, medical_card_id, type_id, heaviness, appearance_dttm, recovery_dt) VALUES (1, 1, 6, 'M', '2022-05-22', '2022-10-20');
+INSERT INTO illness (id, medical_card_id, type_id, heaviness, appearance_dttm, recovery_dt) VALUES (2, 2, 7, 'F', '2022-05-11', '2022-09-13');
+INSERT INTO illness (id, medical_card_id, type_id, heaviness, appearance_dttm, recovery_dt) VALUES (3, 3, 8, 'M', '2022-05-12', '2022-07-11');
+INSERT INTO illness (id, medical_card_id, type_id, heaviness, appearance_dttm, recovery_dt) VALUES (4, 4, 9, 'F', '2022-05-14', '2022-06-23');
+INSERT INTO illness (id, medical_card_id, type_id, heaviness, appearance_dttm, recovery_dt) VALUES (5, 4, 10,'M', '2022-05-19', '2022-11-04');
 
 INSERT INTO person_data (id, last_name, first_name, birth_dt, age, sex, contact_id, medical_card_id, parent_id) VALUES (1, 'lastName1', 'firstName1', '1980-03-27', 42, 'M', 1, 1, null);
 INSERT INTO person_data (id, last_name, first_name, birth_dt, age, sex, contact_id, medical_card_id, parent_id) VALUES (2, 'lastName2', 'firstName2', '1999-05-10', 23, 'F', 2, 2, 1);
