@@ -4,14 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.sql.Date;
@@ -43,15 +40,12 @@ public class PersonData {
     @Column(name = "sex", nullable = false, length = 1)
     private String sex;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "contact_id", nullable = false)
-    private Contact contact;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "medical_card_id", nullable = false)
+    @OneToOne
     private MedicalCard medicalCard;
 
-    @ManyToOne
-    @JoinColumn(name = "parent_id")
+    @OneToOne
+    private Contact contact;
+
+    @OneToOne
     private PersonData parent;
 }
