@@ -17,7 +17,7 @@ public interface ContactMapper {
     @Select("SELECT id, phone_number as phoneNumber, email, profile_link as profileLink FROM contact WHERE id = #{id};")
     Contact getContactById(@Param("id") long id);
 
-   @Insert("INSERT INTO contact (id, phone_number, email, profile_link) VALUES (#{id}, #{phoneNumber}, #{email}, #{profileLink});")
+    @Insert("INSERT INTO contact (id, phone_number, email, profile_link) VALUES (#{id}, #{phoneNumber}, #{email}, #{profileLink});")
     void addContact(Contact contact);
 
 }

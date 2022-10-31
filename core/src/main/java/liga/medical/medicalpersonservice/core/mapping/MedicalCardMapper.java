@@ -11,7 +11,7 @@ import java.util.List;
 @Mapper
 public interface MedicalCardMapper {
 
-   @Select("SELECT id, client_status as clientStatus, med_status as medStatus, registry_dt as registryDt, comment FROM medical_card;")
+    @Select("SELECT id, client_status as clientStatus, med_status as medStatus, registry_dt as registryDt, comment FROM medical_card;")
     List<MedicalCard> getAllMedicalCards();
 
     @Select("SELECT id, client_status as clientStatus, med_status as medStatus, registry_dt as registryDt, comment FROM medical_card WHERE id = #{id};")
