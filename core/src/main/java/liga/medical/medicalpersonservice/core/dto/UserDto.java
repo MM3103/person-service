@@ -7,9 +7,9 @@ import java.util.Set;
 @Data
 public class UserDto {
 
-    public Long id;
+    private Long id;
 
-    public String username;
+    private String username;
 
-    public Set<RoleDto> roles;
+    private Set<RoleDto> roles;
 }

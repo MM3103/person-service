@@ -1,7 +1,8 @@
-package liga.medical.medicalpersonservice.core.controller;
+package liga.medical.medicalpersonservice.core.security;
 
 import liga.medical.medicalpersonservice.core.api.UserService;
 import liga.medical.medicalpersonservice.core.model.User;
+import liga.medical.medicalpersonservice.core.validation.UserValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -28,19 +28,23 @@ public class Role implements GrantedAuthority {
     public Set<User> getUsers() {
         return users;
     }
+
     public void setUsers(Set<User> users) {
-        this.users=users;
+        this.users = users;
     }
+
     public String getName() {
         return name;
     }
 
-    public Long getId(){
+    public Long getId() {
         return id;
     }
-    public void setIdId(Long id){
+
+    public void setIdId(Long id) {
         this.id = id;
     }
+
     public void setName(String name) {
         this.name = name;
     }

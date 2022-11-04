@@ -28,6 +28,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //Доступ только для пользователей с ролью Юзера
                 .antMatchers(HttpMethod.GET, "/address/**").hasAuthority("USER")
                 .antMatchers("/", "/resources/**").permitAll()
+                .antMatchers("/swagger-ui.html",
+                        "/swagger-ui/**",
+                        "/v3/api-docs",
+                        "/v3/api-docs/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -48,6 +52,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     protected void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userService).passwordEncoder((bCryptPasswordEncoder()));
+        auth.userDetailsService(userService).passwordEncoder(bCryptPasswordEncoder());
     }
 }

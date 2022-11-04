@@ -1,4 +1,4 @@
-package liga.medical.medicalpersonservice.core.controller;
+package liga.medical.medicalpersonservice.core.validation;
 
 import liga.medical.medicalpersonservice.core.api.UserService;
 import liga.medical.medicalpersonservice.core.model.User;
