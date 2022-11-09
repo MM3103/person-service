@@ -26,4 +26,13 @@ public class MedicalCardService {
     public void addMedicalCard(MedicalCard medicalCard) {
         medicalCardMapper.addMedicalCard(medicalCard);
     }
+
+    public void updateMedicalCard(Long id, MedicalCard newMedicalCard) {
+        MedicalCard medicalCard= medicalCardMapper.getMedicalCardById(id);
+        medicalCard.setClientStatus(newMedicalCard.getClientStatus());
+        medicalCard.setComment(newMedicalCard.getComment());
+        medicalCard.setMedStatus(newMedicalCard.getMedStatus());
+        medicalCard.setRegistryDt(newMedicalCard.getRegistryDt());
+        medicalCardMapper.addMedicalCard(medicalCard);
+    }
 }

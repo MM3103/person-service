@@ -28,4 +28,16 @@ public class PersonDataService {
     public void addPersonData(PersonData newPersonData) {
         personDataRepository.save(newPersonData);
     }
+
+    public void updatePersonData(Long id, PersonData newPersonData) {
+        PersonData personData = personDataRepository
+                .findById(id).orElseThrow(() -> new EntityNotFoundException("PersonData not found for id: " + id));
+        personData.setLastName(newPersonData.getLastName());
+        personData.setContact(newPersonData.getContact());
+        personData.setFirstName(newPersonData.getFirstName());
+        personData.setBirthDt(newPersonData.getBirthDt());
+        personData.setAge(newPersonData.getAge());
+        personData.setSex(newPersonData.getSex());
+        personDataRepository.save(personData);
+    }
 }

@@ -28,4 +28,16 @@ public class AddressService {
         addressRepository.save(address);
     }
 
+    public void updateAddress(Long id, Address newAddress) {
+        Address address = addressRepository
+                .findById(id).orElseThrow(() -> new EntityNotFoundException("Address not found for id: " + id));
+        address.setCountryId(newAddress.getCountryId());
+        address.setBuilding(newAddress.getBuilding());
+        address.setCity(newAddress.getCity());
+        address.setStreet(newAddress.getStreet());
+        address.setFlat(newAddress.getFlat());
+        address.setIndex(newAddress.getIndex());
+        addressRepository.save(address);
+    }
+
 }

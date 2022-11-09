@@ -23,10 +23,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         httpSecurity
                 .authorizeRequests()
                 .antMatchers("/registration").not().fullyAuthenticated()
-                //Доступ только для пользователей с ролью Администратор
-                .antMatchers(HttpMethod.GET, "/contact/**").hasAuthority("ADMIN")
-                //Доступ только для пользователей с ролью Юзера
-                .antMatchers(HttpMethod.GET, "/address/**").hasAuthority("USER")
+                .antMatchers(HttpMethod.GET, "/contact/**","/address/**","/illness/**","/medicalCard/**").hasAuthority("ADMIN")
+                .antMatchers(HttpMethod.GET, "/personData/**").hasAuthority("USER")
+                .antMatchers(HttpMethod.PATCH, "/contact/**","/address/**","/illness/**","/medicalCard/**","/personData/**").hasAuthority("ADMIN")
+                .antMatchers(HttpMethod.POST, "/contact/**","/address/**","/illness/**","/medicalCard/**","/personData/**").hasAuthority("ADMIN")
                 .antMatchers("/", "/resources/**").permitAll()
                 .antMatchers("/swagger-ui.html",
                         "/swagger-ui/**",

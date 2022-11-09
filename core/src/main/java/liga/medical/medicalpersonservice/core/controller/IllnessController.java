@@ -6,6 +6,7 @@ import liga.medical.medicalpersonservice.core.service.IllnessService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -42,5 +43,13 @@ public class IllnessController {
     @Operation(summary = "Add new illness")
     public void addIllness(@RequestBody Illness newContact) {
         illnessService.addIllness(newContact);
+    }
+
+    @PatchMapping("/update/{id}")
+    @Operation(summary = "Update illness  by id")
+    public void updateIllness(
+            @PathVariable(value = "id") Long id,
+            @RequestBody Illness newIllness) throws EntityNotFoundException {
+        illnessService.updateIllness(id, newIllness);
     }
 }

@@ -1,7 +1,7 @@
 package liga.medical.medicalpersonservice.core.security;
 
-import liga.medical.medicalpersonservice.core.model.Log;
-import liga.medical.medicalpersonservice.core.service.LogService;
+import liga.medical.common.service.debug.DebugService;
+import liga.medical.common.service.model.Debug;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationListener;
@@ -16,7 +16,7 @@ import java.sql.Timestamp;
 @Component
 public class AuthenticationLogger implements ApplicationListener<AbstractAuthenticationEvent> {
 
-    private final LogService logService;
+    private final DebugService debugService;
 
     @Override
     public void onApplicationEvent(AbstractAuthenticationEvent authenticationEvent) {
@@ -24,13 +24,6 @@ public class AuthenticationLogger implements ApplicationListener<AbstractAuthent
         Authentication authentication = authenticationEvent.getAuthentication();
 
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-
-        Log authLog = new Log();
-        authLog.setUsername(authentication.getName());
-        authLog.setInfo("Вход в аккаунт пользователя: " + authentication.getName() + " Доступ разрешен: " + authentication.isAuthenticated());
-        authLog.setTime(timestamp);
-
-        logService.addLog(authLog);
 
         log.info(timestamp + " Вход в аккаунт пользователя: " + authentication.getName() + " Доступ разрешен: " + authentication.isAuthenticated());
     }

@@ -27,4 +27,14 @@ public class IllnessService {
     public void addIllness(Illness illness) {
         illnessRepository.save(illness);
     }
+
+    public void updateIllness(Long id, Illness newIllness) {
+        Illness illness = illnessRepository
+                .findById(id).orElseThrow(() -> new EntityNotFoundException("Illness not found for id: " + id));
+        illness.setAppearanceDttm(newIllness.getAppearanceDttm());
+        illness.setTypeId(newIllness.getTypeId());
+        illness.setHeaviness(newIllness.getHeaviness());
+        illness.setRecoveryDt(newIllness.getRecoveryDt());
+        illnessRepository.save(illness);
+    }
 }

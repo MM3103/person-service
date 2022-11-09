@@ -1,35 +1,41 @@
 package liga.medical.medicalpersonservice.core.model;
 
+import liga.medical.common.dto.MessageType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "logs")
-public class Log {
+@AllArgsConstructor
+@Table(name = "signals")
+public class Signal {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false, unique = true)
     private Long id;
 
-    @Column(name = "time")
-    private java.sql.Timestamp time;
+    @ManyToOne
+    private PersonData personData;
 
-    @Column(name = "username")
-    private String username;
+    @Column(name = "description")
+    private String description;
 
-    @Column(name = "info")
-    private String info;
+
+    @Column(name = "type")
+    @Enumerated(EnumType.STRING)
+    private MessageType type;
+
 
 }

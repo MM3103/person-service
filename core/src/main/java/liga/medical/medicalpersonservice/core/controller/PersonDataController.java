@@ -6,6 +6,7 @@ import liga.medical.medicalpersonservice.core.service.PersonDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -42,5 +43,13 @@ public class PersonDataController {
     @Operation(summary = "Add new person data")
     public void addPersonData(@RequestBody PersonData newPersonData) {
         personDataService.addPersonData(newPersonData);
+    }
+
+    @PatchMapping("/update/{id}")
+    @Operation(summary = "Update person data  by id")
+    public void updatePersonData(
+            @PathVariable(value = "id") Long id,
+            @RequestBody PersonData newPersonData) throws EntityNotFoundException {
+        personDataService.updatePersonData(id, newPersonData);
     }
 }

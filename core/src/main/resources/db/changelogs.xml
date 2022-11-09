@@ -8,5 +8,5 @@
 
     <include file="db/v1_0/createTables.xml"/>
     <include file="db/v1_0/createTablesForSecurity.xml"/>
-    <include file="db/v1_0/createTableForLogging.xml"/>
+    <include file="db/v1_0/createTableSignals.xml"/>
 </databaseChangeLog>

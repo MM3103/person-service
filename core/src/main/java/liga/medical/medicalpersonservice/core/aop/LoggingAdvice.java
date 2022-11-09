@@ -2,6 +2,8 @@ package liga.medical.medicalpersonservice.core.aop;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import liga.medical.common.service.debug.DebugService;
+import liga.medical.common.service.model.Debug;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -19,6 +21,8 @@ import java.util.Date;
 @Component
 @RequiredArgsConstructor
 public class LoggingAdvice {
+
+    private final DebugService debugService;
 
     @Pointcut(value = "execution(* liga.medical.medicalpersonservice.core.controller.*.*(..))")
     public void restPointcut() { }
@@ -38,6 +42,7 @@ public class LoggingAdvice {
         log.info(formatter.format(date) + " Вызван метод: " + methodName  + " из класса " + className + " с аргументами" + mapper.writeValueAsString(array) +
                 ", пользователем: " + username);
 
+
         Object obj = null;
 
         try {
@@ -46,8 +51,11 @@ public class LoggingAdvice {
             log.error(e.getMessage());
             e.printStackTrace();
         }
+
         log.info(className + ":" + methodName + "() " + "Response: " + mapper.writeValueAsString(obj) +
                 ": имя пользователя: " + username);
+
+
         return obj;
     }
 

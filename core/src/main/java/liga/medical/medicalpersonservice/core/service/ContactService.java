@@ -26,4 +26,12 @@ public class ContactService {
     public void addContact(Contact contact) {
         contactMapper.addContact(contact);
     }
+
+    public void updateContact(Long id, Contact newContact) {
+        Contact contact= contactMapper.getContactById(id);
+        contact.setPhoneNumber(newContact.getPhoneNumber());
+        contact.setEmail(newContact.getEmail());
+        contact.setProfileLink(newContact.getProfileLink());
+        contactMapper.addContact(contact);
+    }
 }

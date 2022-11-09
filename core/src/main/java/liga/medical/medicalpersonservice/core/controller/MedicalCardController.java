@@ -6,6 +6,7 @@ import liga.medical.medicalpersonservice.core.service.MedicalCardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -42,5 +43,13 @@ public class MedicalCardController {
     @Operation(summary = "Add new medical card")
     public void addMedicalCard(@RequestBody MedicalCard newMedicalCard) {
         medicalCardService.addMedicalCard(newMedicalCard);
+    }
+
+    @PatchMapping("/update/{id}")
+    @Operation(summary = "Update medicalCard  by id")
+    public void updateMedicalCard(
+            @PathVariable(value = "id") Long id,
+            @RequestBody MedicalCard newMedicalCard) {
+        medicalCardService.updateMedicalCard(id, newMedicalCard);
     }
 }

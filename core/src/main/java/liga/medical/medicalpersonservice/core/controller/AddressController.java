@@ -6,6 +6,7 @@ import liga.medical.medicalpersonservice.core.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -42,5 +43,13 @@ public class AddressController {
     @Operation(summary = "Add new address")
     public void addAddress(@RequestBody Address newAddress) {
         addressService.addAddress(newAddress);
+    }
+
+    @PatchMapping("/update/{id}")
+    @Operation(summary = "Update address  by id")
+    public void updateAddress(
+            @PathVariable(value = "id") Long id,
+            @RequestBody Address newAddress) throws EntityNotFoundException {
+        addressService.updateAddress(id, newAddress);
     }
 }

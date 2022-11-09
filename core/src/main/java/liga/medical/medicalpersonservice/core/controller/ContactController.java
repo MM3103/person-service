@@ -6,6 +6,7 @@ import liga.medical.medicalpersonservice.core.service.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -42,5 +43,13 @@ public class ContactController {
     @Operation(summary = "Add new contact")
     public void addContact(@RequestBody Contact newContact) {
         contactService.addContact(newContact);
+    }
+
+    @PatchMapping("/update/{id}")
+    @Operation(summary = "Update contact  by id")
+    public void updateContact(
+            @PathVariable(value = "id") Long id,
+            @RequestBody Contact newContact)  {
+        contactService.updateContact(id, newContact);
     }
 }
